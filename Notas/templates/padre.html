@@ -47,7 +47,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{% url 'inicio' %}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Factor</h1>
@@ -204,77 +204,35 @@
           <div class="col-lg-4">
             <h3 class="footer-heading">Sobre Factor</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-            <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+            <p><a href="about.html" class="footer-link-more">Conocer más</a></p>
           </div>
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
-              <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+              <li><a href="{% url 'inicio' %}"><i class="bi bi-chevron-right"></i> Inicio</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Categorías</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Sobre Factor</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Contacto</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-2">
-            <h3 class="footer-heading">Categories</h3>
+            <h3 class="footer-heading">Categorías</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Business</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Culture</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sport</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Food</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Politics</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Celebrity</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Startups</a></li>
-              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Travel</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Impuestos</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Legislación</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Previsional</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Sociedades</a></li>
 
             </ul>
           </div>
 
           <div class="col-lg-4">
-            <h3 class="footer-heading">Recent Posts</h3>
+            <h3 class="footer-heading">Notas recientes</h3>
 
             <ul class="footer-links footer-blog-entry list-unstyled">
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="assets/img/post-sq-1.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>5 Great Startup Tips for Female Founders</span>
-                  </div>
-                </a>
-              </li>
+              {% block noticias_footer %}
 
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="assets/img/post-sq-2.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>What is the son of Football Coach John Gruden, Deuce Gruden doing Now?</span>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="assets/img/post-sq-3.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>Life Insurance And Pregnancy: A Working Mom’s Guide</span>
-                  </div>
-                </a>
-              </li>
-
-              <li>
-                <a href="single-post.html" class="d-flex align-items-center">
-                  <img src="assets/img/post-sq-4.jpg" alt="" class="img-fluid me-3">
-                  <div>
-                    <div class="post-meta d-block"><span class="date">Culture</span> <span class="mx-1">&bullet;</span> <span>Jul 5th '22</span></div>
-                    <span>How to Avoid Distraction and Stay Focused During Video Calls?</span>
-                  </div>
-                </a>
-              </li>
+              {% endblock %}
 
             </ul>
 
