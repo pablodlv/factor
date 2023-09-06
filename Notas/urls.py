@@ -1,4 +1,6 @@
 from django.urls import path
-from .views import *
+from Notas.views import listadoNotas
 
-urlpatterns = []
+urlpatterns = [
+    path('listado-notas/', listadoNotas, name = "ListadoNotas"),
+]
