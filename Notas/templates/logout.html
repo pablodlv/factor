@@ -1,0 +1,38 @@
+{% extends "padre.html" %}
+
+  {% load static %}
+
+  {% block principal %}
+  
+  <main id="main">
+
+              <!-- Login Section -->
+              <div class="col-lg-4">
+
+                <div class="container" data-aos="fade-in">
+                  <h3>Cerraste sesión</h3>
+                  <ul class="trending-post">
+                    <h3>{{ mensaje }}</h3>
+
+                    <div class="position-relative">
+                      
+                      <a class="btn btn-warning btn-xl text-uppercase" href="{% url 'login' %}">Iniciá sesión nuevamente</a>
+
+                    </div>
+
+                  </ul>
+                </div>
+
+              </div> <!-- End Login Section -->
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section> <!-- Fin Contenido --> 
+
+
+  </main><!-- End #main -->
+
+
+  {% endblock %}

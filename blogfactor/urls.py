@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Notas.views import inicio, login_request, registrarse
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,5 @@ urlpatterns = [
     # Login y logout
     path('login/', login_request, name='login'),
     path('registrarse/', registrarse, name='registrarse'),
+    path('cerrar-sesion/', LogoutView.as_view(template_name='logout.html'), name='cerrar-sesion'),
 ]

@@ -65,6 +65,11 @@
       </nav><!-- .navbar -->
 
       <div class="position-relative">
+        {% if user.is_authenticated %}
+        <a href="{% url 'cerrar-sesion' %}" class="mx-2">Cerrá sesión</a>
+        {% else %}
+        <a href="{% url 'login' %}">Iniciá sesión</a>
+        {% endif %}
         <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
