@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Notas.views import inicio
+from Notas.views import inicio, login_request, registrarse
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
     path('Notas/', include('Notas.urls')),
+    
+    # Login y logout
+    path('login/', login_request, name='login'),
+    path('registrarse/', registrarse, name='registrarse'),
 ]

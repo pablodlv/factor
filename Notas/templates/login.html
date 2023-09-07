@@ -1,0 +1,44 @@
+{% extends "padre.html" %}
+
+  {% load static %}
+
+  {% block principal %}
+  
+  <main id="main">
+
+              <!-- Login Section -->
+              <div class="col-lg-4">
+
+                <div class="trending">
+                  <h3>Iniciá sesión</h3>
+                  <ul class="trending-post">
+                    <h3>{{ mensaje }}</h3>
+
+                    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+
+                      <table> 
+                        
+                        {{ formulario.as_table }}
+
+                      </table>
+
+                      <input type="submit" value="Ingresar">
+
+                    </form>
+
+                  </ul>
+                </div>
+
+              </div> <!-- End Login Section -->
+            </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+    </section> <!-- Fin Contenido --> 
+
+
+  </main><!-- End #main -->
+
+
+  {% endblock %}

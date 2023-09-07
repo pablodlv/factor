@@ -1,7 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify
 import datetime
-#from Usuarios.models import Autor
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -36,9 +35,6 @@ class Blog(models.Model):
     
 class Autor(models.Model):
     usuario_autor = models.OneToOneField(User, on_delete=models.PROTECT)
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
     web = models.URLField(max_length=200, blank=True)
     suscripcion = models.IntegerField()
     foto = models.ImageField(
@@ -48,21 +44,18 @@ class Autor(models.Model):
     )
     fecha_modificacion = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return f'{self.usuario_autor.username} - {self.foto}'
-    
-class Lector(models.Model):
-    usuario_lector = models.OneToOneField(User, on_delete=models.PROTECT)
+        return f'{self.usuario_autor.username} - {self.suscripcion}'
+
+
+class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    email = models.EmailField()
-    foto = models.ImageField(
-        upload_to='Usuarios/imagenes',
-        blank=True,
-        null=True
-    )
-    fecha_modificacion = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return f'{self.usuario_lector.username} - {self.foto}'
+        return f'{self.nombre}'
+    
+class Etiqueta(models.Model):
+    nombre = models.CharField(max_length=50)
+    def __str__(self):
+        return f'{self.nombre}'
     
 class Nota(models.Model):
     blog = models.ForeignKey(Blog, on_delete = models.PROTECT)
@@ -70,15 +63,16 @@ class Nota(models.Model):
     bajada = models.CharField(max_length=120)
     texto = models.TextField()
     fecha_publicacion = models.DateField()
-    autores = models.ManyToManyField(Autor)
-    img_destacada = models.ImageField()
-    estatus = models.BooleanField()
-    url = models.URLField(slugify)
+    autor = models.ManyToManyField(Autor)
+    categoria_nota = models.ManyToManyField(Categoria)
+    etiqueta_nota = models.ManyToManyField(Etiqueta)
+    img_destacada = models.ImageField(
+        upload_to='imagenes/destacadas',
+        blank=True,
+        null=True
+    )
+    estatus_publicacion = models.BooleanField()
+    #url = models.URLField(slugify)
     def __str__(self):
-        return f'{self.titulo} - {self.bajada} - {self.estatus}'
+        return f'{self.titulo} - {self.categoria_nota} - {self.estatus_publicacion}'
     
-
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=50)
-    def __str__(self):
-        return super().__str__()
