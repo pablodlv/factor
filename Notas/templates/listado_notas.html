@@ -4,11 +4,11 @@
 
   {% block principal_1 %} 
 
-    {% for nota in notas %}
+    {% for notas in object_list %}
 
       <li>{{ nota }}</li>
     
-      {% endfor %}
+    {% endfor %}
 
   {% endblock %}
 
