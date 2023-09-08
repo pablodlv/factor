@@ -16,11 +16,12 @@ def inicio(request):
 def listadoNotas(request):
  notas = Nota.objects.all() 
  contexto= {"notas":notas}
- return render(request, "/listado-notas.html",contexto)
+ return render(request, "listado_notas.html",contexto)
+
 
 class notasLista(ListView):
     model = Nota
-    template_name='/notas_list.html'
+    template_name='listado_notas.html'
 
 # Vista de búsquedas y resultados
 
